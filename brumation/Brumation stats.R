@@ -1,0 +1,136 @@
+View(X4_weeks)
+shapiro.test(X4_weeks$weight)
+#=====WEIGHT ANALYSIS======#
+wt1<-cbind(X4_weeks$weight)
+histwt1<-log(X4_weeks$weight)
+summary(histwt1)
+hist(histwt1) #Logging the 'weight' results normalized the data
+kruskal.test(weight ~ treat, data=X4_weeks)
+kruskal.test(weight ~ week, data=X4_weeks)
+kruskal.test(weight ~ anno, data=X4_weeks)
+#===Weight t-test and glm and interaction analysis====#
+wtaus<-aov(weight ~ week + anno + treat, data=X4_weeks)
+aov(wtaus)
+summary(wtaus)
+wtaus1<-glm(weight ~ week + anno + treat + week*treat + anno*treat +anno*week, data=X4_weeks)
+glm(wtaus1)
+summary(wtaus1)
+wt<-as.factor(X4_weeks$weight)
+levels(wt) #This shows you the numbers that you have in each line
+wtaus1<-cbind(X4_weeks, weight=as.factor(X4_weeks$weight))
+head(X4_weeks)#cbind for the data defines each of the numbers and categories that you are trying to analyse and allows you to "slice" the data later as you define what you where you need to analyse the interactions.
+wtaus1fact<-as.factor(X4_weeks$weight)
+levels(wtaus1fact)
+trtbywk<-glm(weight ~ week*treat, data=X4_weeks)
+summary(trtbywk)
+X4_weeks<-cbind(X4_weeks, time=as.factor(X4_weeks$week))
+head(X4_weeks)
+X4_weeks<-cbind(X4_weeks, brum=as.factor(X4_weeks$treat))
+head(X4_weeks)
+wtaus2<-glm(weight ~ time*brum, data=X4_weeks)
+summary(wtaus2)
+wtaus3<-glm(weight~treat + week + anno, data=X4_weeks)
+summary(wtaus3)
+#=====SUL ANALYSIS======#
+sul1<-cbind(X4_weeks$sul)
+histsul<-log(X4_weeks$sul)
+summary(histsul)
+hist(histsul) #Logging the 'weight' results normalized the data
+kruskal.test(sul ~ treat, data=X4_weeks)
+kruskal.test(sul ~ week, data=X4_weeks)
+kruskal.test(sul ~ anno, data=X4_weeks)
+
+#===sul Anova and interaction analysis====#
+sulaov<-aov(sul ~ treat, data=X4_weeks)
+aov(sulaov)
+summary(sulaov)
+sulaov1<-aov(sul ~ time + anno + brum, data=X4_weeks)
+aov(sulaov1)
+summary(sulaov)
+sulaus<-glm(sul ~ time + anno + brum + time*brum + anno*brum +anno*time, data=X4_weeks)
+glm(sulaus)
+summary(sulaus)
+sul1<-as.factor(X4_weeks$sul)
+levels(sul1) #This shows you the numbers that you have in each line
+sulaus1<-cbind(X4_weeks, sul=as.factor(X4_weeks$sul))
+head(X4_weeks)#cbind for the data defines each of the numbers and categories that you are trying to analyse and allows you to "slice" the data later as you define what you where you need to analyse the interactions.
+sulaus1fact<-as.factor(X4_weeks$sul)
+levels(sul1)
+trtbywk<-glm(sul ~ week*treat, data=X4_weeks)
+summary(trtbywk)
+X4_weeks<-cbind(X4_weeks, time=as.factor(X4_weeks$week))
+head(X4_weeks)
+X4_weeks<-cbind(X4_weeks, brum=as.factor(X4_weeks$treat))
+head(X4_weeks)
+wtaus2<-glm(sul ~ time*brum, data=X4_weeks)
+summary(wtaus2)
+#=====SMI ANALYSIS======#
+SMI1<-cbind(X4_weeks$SMI)
+histSMI<-log(X4_weeks$SMI)
+summary(histSMI)
+hist(histSMI) #Logging the 'weight' results normalized the data
+kruskal.test(SMI ~ treat, data=X4_weeks)
+kruskal.test(SMI ~ week, data=X4_weeks)
+kruskal.test(SMI ~ anno, data=X4_weeks)
+
+#===sul Anova and interaction analysis====#
+SMIaov<-aov(SMI ~ week + anno + treat, data=X4_weeks)
+aov(SMIaov)
+summary(SMIaov)
+SMIaov1<-aov(SMI ~ treat, data=X4_weeks)
+aov(SMIaov)
+summary(SMIaov1)
+SMIaus<-glm(SMI ~ week + anno + treat + week*treat + anno*treat +anno*week, data=X4_weeks)
+glm(SMIaus)
+summary(SMIaus)
+SMI1<-as.factor(X4_weeks$sul)
+levels(SMI1) #This shows you the numbers that you have in each line
+SMIaus1<-cbind(X4_weeks, SMI=as.factor(X4_weeks$sul))
+head(X4_weeks)#cbind for the data defines each of the numbers and categories that you are trying to analyse and allows you to "slice" the data later as you define what you where you need to analyse the interactions.
+SMIaus1fact<-as.factor(X4_weeks$sul)
+levels(SMIaus1fact)
+trtbywk<-glm(SMI ~ week*treat, data=X4_weeks)
+summary(trtbywk)
+X4_weeks<-cbind(X4_weeks, time=as.factor(X4_weeks$week))
+head(time)
+X4_weeks<-cbind(X4_weeks, brum=as.factor(X4_weeks$treat))
+head(brum)
+sulaus2<-glm(SMI ~ week*treat, data=X4_weeks)
+summary(sulaus2)
+
+
+View(X12_week)
+shapiro.test(X12_week$weight)
+#=====WEIGHT ANALYSIS======#
+wt1<-cbind(X12_week$weight)
+histwt1<-log(X12_week$weight)
+summary(histwt1)
+hist(histwt1) #Logging the 'weight' results normalized the data
+kruskal.test(weight ~ treat, data=X12_week)
+kruskal.test(weight ~ week, data=X12_week)
+kruskal.test(weight ~ anno, data=X12_week)
+#===Weight t-test and glm and interaction analysis====#
+wtaus<-aov(weight ~ week + anno + treat, data=X12_week)
+aov(wtaus)
+summary(wtaus)
+wtaus1<-glm(weight ~ week + anno + treat + week*treat + anno*treat +anno*week, data=X12_week)
+glm(wtaus1)
+summary(wtaus1)
+wt<-as.factor(X12_week$weight)
+levels(wt) #This shows you the numbers that you have in each line
+wtaus1<-cbind(X12_week, weight=as.factor(X12_week$weight))
+head(X12_week)#cbind for the data defines each of the numbers and categories that you are trying to analyse and allows you to "slice" the data later as you define what you where you need to analyse the interactions.
+wtaus1fact<-as.factor(X12_week$weight)
+levels(wtaus1fact)
+trtbywk<-glm(weight ~ week*treat, data=X12_week)
+summary(trtbywk)
+X12_week<-cbind(X12_week, timeSMI=as.factor(X12_week$week))
+head(X12_week)
+X12_week<-cbind(X12_week, annoSMI=as.factor(X12_week$treat))
+head(X12_week)
+X12_week<-cbind(X12_week, brum1SMI=as.factor(X12_week$anno))
+head(X12_week)
+wtaus2<-glm(weight ~ timeSMI*brumSMI + timeSMI*annoSMI, data=X12_week)
+summary(wtaus2)
+
+
